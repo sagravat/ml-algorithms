@@ -1,6 +1,3 @@
-% Sanjay Agravat
-% forward viterbi algorithm
-
 function [total,argmax,valmax] = forward_viterbi(obs,states,start_p,trans_p,emit_p)
 %Translated from Python code available at:
 %  http://en.wikipedia.org/wiki/Viterbi_algorithm

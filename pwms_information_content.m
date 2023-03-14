@@ -1,5 +1,3 @@
-% Sanjay Agravat
-% Position weight matrix
 % Compute information content for pwms vectors
 function ic = pwms_information_content(pwms)
 

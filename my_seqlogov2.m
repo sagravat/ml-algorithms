@@ -1,9 +1,10 @@
-function pwm = reg_pwm(seqs,pseudocounts,qa)
+function pwm = my_seqlogov2(seqs,counts,pseudocounts)
 %Compute a weighted average of aligned sequences + pseudocounts to form a
 %pwm
 %
 %INPUTS:
 %seqs-aligned sequences
+%counts-weight for each sequence
 %pseudocount-scalar, weight of pseudocounts to be added to each letter in
 %each position of the pwm
 %OUTPUTS:
@@ -25,8 +26,8 @@ end
 pwm = zeros(4,L);
 for i = 1:L
     for j = 1:4
-        ii_j = intSeq(:,i) == j;
+        ii_j = intSeq(:,i) == j
         pwm(j,i) = sum(ii_j);
     end
-    pwm(:,i) = (pwm(:,i) + (pseudocounts*qa))/(sum(pwm(:,i)) + pseudocounts);
+    pwm(:,i) = (pwm(:,i) + pseudocounts)/sum(pwm(:,i) + pseudocounts);
 end
